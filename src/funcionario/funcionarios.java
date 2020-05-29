@@ -10,8 +10,8 @@ public class funcionarios {
 		Scanner sc= new Scanner(System.in);
 		String nome,nome1,nome2;
 		char sn;
-		int hrstrabalhadas,hrstrabalhadas1,hrstrabalhadas2, opcao,totalhoras;
-		double vlrhora;
+		int hrstrabalhadas,hrstrabalhadas1,hrstrabalhadas2, opcao,totalhoras=0;
+		double vlrhora,valortotal=0, total=0;
 		
 	
 			
@@ -27,19 +27,25 @@ public class funcionarios {
 			vlrhora=sc.nextDouble();
 			System.out.print("Digitar outro (S/N)? ");
 			sn=sc.next().charAt(0);
-			
-			if (hrstrabalhadas < 0) {
-				System.out.println("As Horas Trabalhadas não podem ser negativas, tente novamente:");
+
+
+			if (hrstrabalhadas<0) {
+				System.out.print("Valor de horas trabalhadas não pode ser negativo, Tente novamente: ");
 				hrstrabalhadas=sc.nextInt();
-				
 			}
-			else if (vlrhora < 0 ) {
-				System.out.println("O valor por hora não pode ser negativo, tente novamente");
+			else if (vlrhora<0) {
+				System.out.print("O valor por hora trabalhada não pode ser negativo, tente novamente: ");
 				vlrhora=sc.nextDouble();
 				
-				
-			} 
-
+			}
+			
+			
+			totalhoras=hrstrabalhadas+totalhoras;
+			
+			valortotal=vlrhora*hrstrabalhadas;
+			
+			total=valortotal+total;
+			
 			
 		} while(sn== 's'|| sn=='S') ;
 		
@@ -58,6 +64,21 @@ public class funcionarios {
 		System.out.println("Digite uma opção: ");	
 		opcao=sc.nextInt();
 		System.out.println("");
+		
+		if (opcao==1) {
+		  System.out.printf("Total de horas = %.2f%n " , totalhoras );
+		  
+			
+		}
+		
+		else if (opcao==2) { 
+			
+			System.out.printf("Custo total = %.2f%n ", total);
+			
+		}
+	
+		
+		
 		} while (opcao!=4);
 		
 		
